@@ -1,0 +1,12 @@
+#include<stdio.h>
+int main()
+{
+    int a,b,c;
+    printf("Enter the distance in kilometre:");
+    scanf("%d",&b);
+    a=b*1000;
+    c=b*10000;
+    printf("km->m= %d m\n",a);
+    printf("km->cm= %d cm",c);
+    return 0;
+}
