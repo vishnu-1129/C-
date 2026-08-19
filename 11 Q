@@ -1,0 +1,111 @@
+EX-11
+#include <stdio.h>
+#include <math.h>
+
+#define PI 3.14159265358979323846
+void swapNumbers();
+void calculateSphere();
+void calculateCylinder();
+void calculateCone();
+void calculateCube();
+
+int main() {
+    int choice;
+
+    do {
+        printf("\n================ Main Menu ================\n");
+        printf("1. Swap two numbers (using third variable)\n");
+        printf("2. Sphere (Area and Volume)\n");
+        printf("3. Cylinder (Area and Volume)\n");
+        printf("4. Cone (Area and Volume)\n");
+        printf("5. Cube (Area and Volume)\n");
+        printf("6. Exit\n");
+        printf("Enter your choice (1-6): ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1: swapNumbers(); break;
+            case 2: calculateSphere(); break;
+            case 3: calculateCylinder(); break;
+            case 4: calculateCone(); break;
+            case 5: calculateCube(); break;
+            case 6: printf("Exiting program. Goodbye!\n"); break;
+            default: printf("Invalid choice! Please enter a number between 1 and 6.\n");
+        }
+    } while (choice != 6);
+
+    return 0;
+}
+void swapNumbers() {
+    float num1, num2, temp;
+    
+    printf("\n--- Swap Two Numbers ---\n");
+    printf("Enter first number: ");
+    scanf("%f", &num1);
+    printf("Enter second number: ");
+    scanf("%f", &num2);
+
+    printf("Before swapping: First = %.2f, Second = %.2f\n", num1, num2);
+
+    // Swapping logic using 'temp' as the third variable
+    temp = num1;
+    num1 = num2;
+    num2 = temp;
+
+    printf("After swapping:  First = %.2f, Second = %.2f\n", num1, num2);
+}
+void calculateSphere() {
+    float radius, area, volume;
+    printf("\n--- Sphere Calculations ---\n");
+    printf("Enter radius: ");
+    scanf("%f", &radius);
+
+    area = 4 * PI * radius * radius;
+    volume = (4.0 / 3.0) * PI * radius * radius * radius;
+
+    printf("Surface Area = %.2f\n", area);
+    printf("Volume       = %.2f\n", volume);
+}
+void calculateCylinder() {
+    float radius, height, area, volume;
+    printf("\n--- Cylinder Calculations ---\n");
+    printf("Enter radius: ");
+    scanf("%f", &radius);
+    printf("Enter height: ");
+    scanf("%f", &height);
+
+    area = 2 * PI * radius * (radius + height);
+    volume = PI * radius * radius * height;
+
+    printf("Total Surface Area = %.2f\n", area);
+    printf("Volume             = %.2f\n", volume);
+}
+
+// 4. Cone calculations
+void calculateCone() {
+    float radius, height, slant_height, area, volume;
+    printf("\n--- Cone Calculations ---\n");
+    printf("Enter radius: ");
+    scanf("%f", &radius);
+    printf("Enter height: ");
+    scanf("%f", &height);
+
+    slant_height = sqrt((radius * radius) + (height * height));
+    area = PI * radius * (radius + slant_height);
+    volume = (PI * radius * radius * height) / 3.0;
+
+    printf("Total Surface Area = %.2f\n", area);
+    printf("Volume             = %.2f\n", volume);
+}
+void calculateCube() {
+    float side, area, volume;
+    printf("\n--- Cube Calculations ---\n");
+    printf("Enter side length: ");
+    scanf("%f", &side);
+
+    area = 6 * side * side;
+    volume = side * side * side;
+
+    printf("Total Surface Area = %.2f\n", area);
+    printf("Volume             = %.2f\n", volume);
+}
