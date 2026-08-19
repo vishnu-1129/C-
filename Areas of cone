@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <math.h>
+
+#define PI 3.14159265358979323846
+
+int main() {
+    float radius, height, slant_height;
+    float lateral_surface_area, total_surface_area, volume;
+    printf("Enter the radius of the cone: ");
+    scanf("%f", &radius);
+    printf("Enter the height of the cone: ");
+    scanf("%f", &height);
+    slant_height = sqrt((radius * radius) + (height * height));
+    lateral_surface_area = PI * radius * slant_height;
+    total_surface_area = PI * radius * (radius + slant_height);
+    volume = (PI * radius * radius * height) / 3.0;
+    printf("\n--- Cone Calculations ---\n");
+    printf("Slant Height         = %.2f\n", slant_height);
+    printf("Lateral Surface Area = %.2f\n", lateral_surface_area);
+    printf("Total Surface Area   = %.2f\n", total_surface_area);
+    printf("Volume               = %.2f\n", volume);
+
+    return 0;
+}
